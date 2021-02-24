@@ -17,18 +17,18 @@ if __name__ == '__main__':
     #sf.write('test.wav', audio_signal, sr)
 
     #2nd way (better with Applause than Waves?)
-    abs_spectrogram = np.abs(librosa.stft(x)) 
-    plt.figure(figsize=(14, 5), frameon=False)
-    plt.axis('off')
-    librosa.display.specshow(abs_spectrogram, sr=sr)
-    plt.tight_layout()
-    plt.savefig('test.png', bbox_inches='tight', pad_inches=0)
+    #abs_spectrogram = np.abs(librosa.stft(x)) 
+    #plt.figure(figsize=(14, 5), frameon=False)
+    #plt.axis('off')
+    #librosa.display.specshow(abs_spectrogram, sr=sr)
+    #plt.tight_layout()
+    #plt.savefig('test.png', bbox_inches='tight', pad_inches=0)
     #audio_signal = librosa.griffinlim(abs_spectrogram) #estimates the phase w. the Griffin-Lim Algorithm (GLA)
     #print(audio_signal, audio_signal.shape)
     #sf.write('test.wav', audio_signal, sr)
 
     #3rd way (same output as 2nd?)
-    #spectrum = librosa.stft(x)
-    #reconstructed_audio = librosa.istft(spectrum) #Inverse STFT
-    #sf.write('Applause4.wav', reconstructed_audio, sr)
+    spectrum = librosa.stft(x)
+    reconstructed_audio = librosa.istft(spectrum) #Inverse STFT
+    sf.write('audio.wav', reconstructed_audio, sr)
     #print(sum(x[:len(reconstructed_audio)] - reconstructed_audio))  # very close to 0
